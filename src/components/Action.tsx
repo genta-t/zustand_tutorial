@@ -6,7 +6,7 @@ const Actions = () => {
   return (
     <>
       <button onClick={loadTodos}>Load Todo</button>
-      <button onClick={resetStore}>Load Todo</button>
+      <button onClick={resetStore}>Reset Store</button>
     </>
   )
 }

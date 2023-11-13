@@ -13,3 +13,7 @@ export type TypeTodoStore = {
   loadTodos: () => Promise<void>;
   resetStore: () => void;
 }
+
+export type TypeTodoItemProps = {
+  todo: TypeTodo;
+}

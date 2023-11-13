@@ -1,6 +1,7 @@
 import './App.css';
 import Actions from './components/Action';
 import AddTodoForm from './components/AddTodoForm';
+import TodoItem from './components/TodoItem';
 import useTodoStore from './store/todo.store';
 
 const App = () => {
@@ -16,7 +17,10 @@ const App = () => {
         : todos.map((todo) => {
           return(
             <>
-              TodoItem
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+              />
             </>
           )
         })
