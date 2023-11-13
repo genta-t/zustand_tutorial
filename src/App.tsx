@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Actions from './components/Action';
+import AddTodoForm from './components/AddTodoForm';
+import TodoItem from './components/TodoItem';
+import useTodoStore from './store/todo.store';
 
-function App() {
+const App = () => {
+  const { todos } = useTodoStore((state) => state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <AddTodoForm />
+      <Actions />
+      <ul>
+        {todos.length < 1
+        ? "No Todos"
+        : todos.map((todo) => {
+          return(
+            <>
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+              />
+            </>
+          )
+        })
+        }
+      </ul>
     </div>
   );
 }
